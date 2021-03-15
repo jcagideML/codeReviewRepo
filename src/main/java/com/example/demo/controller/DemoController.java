@@ -10,13 +10,13 @@ import java.util.TreeMap;
 @RestController
 public class DemoController {
 
-    @GetMapping(path = "/{codigo}")
-    public String work(@PathVariable String codigo) {
-        return "La traducción de: " + codigo + "\nEs: " + Traductor.traducir(codigo);
+    @GetMapping(path = "/{code}")
+    public String work(@PathVariable String code) {
+        return "La traducción de: " + code + "\nEs: " + Translate.translate(code);
     }
     //Probar con: ....%20---%20.-..%20.-%20%20%20-...%20..-%20.%20-.%20.-%20...%20%20%20-.%20---%20-.-.%20....%20.%20...
 
-    public static class Traductor {
+    public static class Translate {
 
         private final static TreeMap<String, String> map = new TreeMap<>();
 
@@ -59,8 +59,8 @@ public class DemoController {
             map.put("----.", "9");
         }
 
-        public static String traducir(String codigo) {
-            String[] words = codigo.split(" {3}");
+        public static String translate(String code) {
+            String[] words = code.split(" {3}");
 
             StringBuilder fin = new StringBuilder();
 
